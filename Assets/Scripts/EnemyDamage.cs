@@ -17,7 +17,7 @@ public class EnemyDamage : MonoBehaviour
     private void ProcessHit()
     {
         hitPoints -= 1;
-        print($"Enemy got damage HP is {hitPoints}");
+        Debug.Log(hitPoints + " left");
     }
 
     private void DestroyEnemy()

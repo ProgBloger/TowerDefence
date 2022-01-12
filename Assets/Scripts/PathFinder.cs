@@ -11,7 +11,7 @@ public class PathFinder : MonoBehaviour
     Queue<Waypoint> queue = new Queue<Waypoint>();
     Waypoint searchPoint;
     [SerializeField] bool isRunning = true;
-    public List<Waypoint> path = new List<Waypoint>();
+    [SerializeField] public List<Waypoint> path = new List<Waypoint>();
 
     Vector2Int[] directions = {
         Vector2Int.up,
@@ -35,15 +35,27 @@ public class PathFinder : MonoBehaviour
 
     private void CreatePath()
     {
-        path.Add(endPoint);
+        AddPointToPath(endPoint);
+        
         Waypoint prevPoint = endPoint.exploredFrom;
         while(prevPoint != startPoint){
+
             prevPoint.SetTopColor(Color.yellow);
-            path.Add(prevPoint);
+            AddPointToPath(prevPoint);
             prevPoint = prevPoint.exploredFrom;
+
         }
-        path.Add(startPoint);
+
+        AddPointToPath(startPoint);
+
         path.Reverse();
+    }
+
+    private void AddPointToPath(Waypoint waypoint)
+    {
+        path.Add(waypoint);
+        waypoint.isPlacable = false;
+
     }
 
     private void PathFindAlgorythm()

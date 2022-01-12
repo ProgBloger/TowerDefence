@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6518474408837120853}
   - component: {fileID: 3437397812944746278}
   - component: {fileID: 5180809017248298543}
+  - component: {fileID: 1625010784}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -58,8 +59,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40381af2c25025d43889d3aea394b36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlacable: 1
   isExplored: 0
   exploredFrom: {fileID: 0}
+  tower: {fileID: 7383243121414955400, guid: 17fb42a310cacfa44a2f18911608b153, type: 3}
+--- !u!65 &1625010784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389566803817605263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4506414471952073240
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +168,7 @@ MeshCollider:
   m_GameObject: {fileID: 4506414471952073240}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30

@@ -21,15 +21,12 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator EnemyMove(List<Waypoint> path)
     {
-        print("Enemy started moving");
         foreach(var block in path)
         {
             transform.LookAt(block.transform);
             transform.position = block.transform.position;
             
-            print($"Enemy moved to {block.ToString()}");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
         }
-        print("Enemy finished moving");
     }
 }

@@ -40,25 +40,17 @@ public class Waypoint : MonoBehaviour
 
     void OnMouseOver()
     {
-        if(isPlacable)
+        if(Input.GetMouseButtonDown(0))
         {
-            if(Input.GetMouseButtonDown(0))
+            if(isPlacable)
             {
-                Debug.Log($"Clicked {gameObject.name} block");
-                PlaceTower();
-            }
-            else
-            {
-                Debug.Log($"Turret can not be placed");
+                var towerFactory = FindObjectOfType<TowerFactory>();
+                towerFactory.AddTower(this);
             }
         }
-    }
-
-    private void PlaceTower()
-    {
-        isPlacable = false;
-
-        var wpPosition = transform.position;
-        Instantiate(tower, wpPosition, Quaternion.identity);
+        else
+        {
+            Debug.Log($"Turret can not be placed");
+        }
     }
 }

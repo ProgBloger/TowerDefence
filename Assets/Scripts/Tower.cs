@@ -9,6 +9,8 @@ public class Tower : MonoBehaviour
     [SerializeField] float shootRange;
     [SerializeField] ParticleSystem bulletParticles;
 
+    public Waypoint baseWaypoint;
+
     // Update is called once per frame
     void Update()
     {

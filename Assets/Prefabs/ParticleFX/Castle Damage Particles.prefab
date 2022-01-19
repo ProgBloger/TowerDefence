@@ -9586,7 +9586,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f3c5d2df69c63b49a9e64fa5a569fa2, type: 2}
+  - {fileID: 2100000, guid: 085f6fa33c1950845a62ef76dcd073f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19218,7 +19218,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19814f35f21b5834ab03c4b11e23d923, type: 2}
+  - {fileID: 2100000, guid: 32fde7ac913f8fd4a96fb2bcf615dd6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19276,7 +19276,7 @@ GameObject:
   - component: {fileID: 198537984209914932}
   - component: {fileID: 199362987947312204}
   m_Layer: 0
-  m_Name: Enemy Death Particles
+  m_Name: Castle Damage Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,7 +19,8 @@ public class EnemySpawner : MonoBehaviour
         while(true)
         {
             // add enemy to scene
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            newEnemy.transform.parent = transform;
             // wait 
             yield return new WaitForSeconds(spawnInterval);
             print($"After {spawnInterval} sec");

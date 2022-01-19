@@ -6,8 +6,11 @@ public class EnemyMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     PathFinder pathFinder;
+    [SerializeField] float speed = 0.5f;
+    Castle castle;
     void Start()
     {
+        castle = FindObjectOfType<Castle>();
         pathFinder = FindObjectOfType<PathFinder>();
         var path = pathFinder.GetPath();
         StartCoroutine(EnemyMove(path));
@@ -24,9 +27,13 @@ public class EnemyMovement : MonoBehaviour
         foreach(var block in path)
         {
             transform.LookAt(block.transform);
-            transform.position = block.transform.position;
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(speed);
+
+            transform.position = block.transform.position;
         }
+        var enemyDamage = GetComponent<EnemyDamage>();
+        enemyDamage.BlowUpCastle();
+        castle.DamageCastle();
     }
 }

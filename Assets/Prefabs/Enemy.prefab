@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d948b11cd629e944a9c4b5d207f44578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.68
 --- !u!54 &639699172
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -91,7 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 10
   hitParticles: {fileID: 4014175330094351724}
-  deathParticles: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
+  deathParticles: {fileID: 198537984209914932, guid: 620b8f0d0a490c945a8245d33e42beac, type: 3}
+  castleDamageParticles: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
 --- !u!1001 &1099565223955099740
 PrefabInstance:
   m_ObjectHideFlags: 0

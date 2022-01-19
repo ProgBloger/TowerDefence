@@ -32,6 +32,7 @@ public class TowerFactory : MonoBehaviour
         var wpPosition = baseWaypoint.transform.position;
         var newTower = Instantiate(towerPrefab, wpPosition, Quaternion.identity);
 
+        newTower.transform.parent = transform;
         // Set baseWaypoint
         newTower.baseWaypoint = baseWaypoint;
         // Add Tower to Queue

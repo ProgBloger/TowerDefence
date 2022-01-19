@@ -7,7 +7,9 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     PathFinder pathFinder;
     [SerializeField] float speed = 0.5f;
+    [SerializeField] float moveStep;
     Castle castle;
+    Vector3 targetPosition;
     void Start()
     {
         castle = FindObjectOfType<Castle>();
@@ -19,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime*moveStep);
     }
 
     IEnumerator EnemyMove(List<Waypoint> path)
@@ -27,10 +29,10 @@ public class EnemyMovement : MonoBehaviour
         foreach(var block in path)
         {
             transform.LookAt(block.transform);
+
+            targetPosition = block.transform.position;
             
             yield return new WaitForSeconds(speed);
-
-            transform.position = block.transform.position;
         }
         var enemyDamage = GetComponent<EnemyDamage>();
         enemyDamage.BlowUpCastle();

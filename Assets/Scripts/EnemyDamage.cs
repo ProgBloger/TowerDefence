@@ -13,10 +13,15 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] ParticleSystem castleDamageParticles;
     [SerializeField] Text scoreText;
     int currentScore;
+    AudioSource audioSource;
+    [SerializeField] AudioClip hitEnemySoundFx;
+    [SerializeField] AudioClip deathEnemySoundFX;
+    Vector3 targetPosition;
     
     void Start()
     {
         scoreText = GameObject.Find("Score").GetComponent<Text>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -31,6 +36,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void ProcessHit()
     {
+        audioSource.PlayOneShot(hitEnemySoundFx);
         hitParticles.Play();
         hitPoints -= 1;
         Debug.Log(hitPoints + " left");
@@ -55,7 +61,14 @@ public class EnemyDamage : MonoBehaviour
         destroyFX.Play();
 
         float destroyFX_Duration = destroyFX.main.duration;
+
+        AudioSource.PlayClipAtPoint(deathEnemySoundFX, Camera.main.transform.position);
         Destroy(destroyFX.gameObject, destroyFX_Duration);
         Destroy(gameObject);
+    }
+
+    void Update()
+    {
+
     }
 }

@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] [Range(0.1f, 20f)] float spawnInterval;
     [SerializeField] EnemyMovement enemyPrefab;
+    [SerializeField] AudioClip enemySpwanSound;
     void Start()
     {
         // launch co program
@@ -18,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
         // load infinity spawn cycle
         while(true)
         {
+            GetComponent<AudioSource>().PlayOneShot(enemySpwanSound);
             // add enemy to scene
             var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.transform.parent = transform;
